@@ -1,0 +1,7 @@
+kafka:
+  brokerAddress: localhost:9092
+  topic: s1p.topic
+  fooTopic: s1p.fooTopic
+spring:
+  jmx:
+    enabled: false
