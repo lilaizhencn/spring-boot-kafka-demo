@@ -18,3 +18,6 @@ kafka-topics --zookeeper localhost:2181 --create --topic s1p.fooTopic --partitio
     7.第七个例子是对第二个例子的拓展,在监听那儿添加了重试和过滤
     8.第八个例子介绍的是使用更低级的KafkaMessageListenerContainer 替代 @KafkaListener
     9.第9个例子是手动通过代码Acknowledgment提交offset的例子 
+    
+#如何测试:
+    1.比如测试第一个例子 则进入包 app1 ,run运行main方法即可
