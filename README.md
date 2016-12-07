@@ -1,5 +1,8 @@
 # spring-boot-kafka-demo
 基于spring boot的spring kafka组件的使用demo，包含几个demo讲解。
+
+``更新了依赖版本``
+
 #这个demo需要提前创建两个topic,或者自己创建两个,然后在配置文件中修改成自己的就可以了
 ===
 afka-topics --zookeeper localhost:2181 --create --topic s1p.topic --partitions 5 --replication-factor 1
