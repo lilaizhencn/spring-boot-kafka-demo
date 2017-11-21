@@ -24,3 +24,11 @@ kafka-topics --zookeeper localhost:2181 --create --topic s1p.fooTopic --partitio
     
 #如何测试:
 1. 比如测试第一个例子 则进入包 app1 ,run运行main方法即可
+
+
+#### kafka版本与spring-kafka版本对应关系
+
+Spring for Apache Kafka Version | kafka-clients Version
+------------ | -------------
+2.1.x | 0.11.0.x, 1.0.x
+2.1.x | 1.0.x
