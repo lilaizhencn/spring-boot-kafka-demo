@@ -21,7 +21,7 @@ public class S1pKafkaApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new SpringApplicationBuilder(S1pKafkaApplication.class)
-			.web(WebApplicationType.SERVLET)
+			.web(WebApplicationType.NONE)
 			.run(args);
 		TestBean testBean = context.getBean(TestBean.class);
 		testBean.send("foo");
