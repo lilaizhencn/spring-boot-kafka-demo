@@ -8,6 +8,7 @@ import com.springkafka.ConfigProperties;
 import com.springkafka.JsonConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,6 +18,9 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 
+/**
+ * @author lilaizhen
+ */
 @SpringBootApplication
 @Import({ JsonConfiguration.class, ConfigProperties.class })
 @EnableKafka
@@ -24,7 +28,7 @@ public class S1pKafkaApplication {
 
 	public static void main(String[] args) throws Exception {
 		ConfigurableApplicationContext context = new SpringApplicationBuilder(S1pKafkaApplication.class)
-			.web(false)
+			.web(WebApplicationType.SERVLET)
 			.run(args);
 		TestBean testBean = context.getBean(TestBean.class);
 		testBean.send(new Foo("foo", "bar"));

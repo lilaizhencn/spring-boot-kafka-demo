@@ -4,6 +4,7 @@ import com.springkafka.CommonConfiguration;
 import com.springkafka.ConfigProperties;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,7 +21,7 @@ public class S1pKafkaApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new SpringApplicationBuilder(S1pKafkaApplication.class)
-			.web(false)
+			.web(WebApplicationType.SERVLET)
 			.run(args);
 		TestBean testBean = context.getBean(TestBean.class);
 		testBean.send("foo");
