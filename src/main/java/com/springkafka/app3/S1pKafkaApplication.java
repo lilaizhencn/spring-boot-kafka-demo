@@ -20,6 +20,9 @@ import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
+/**
+ * @author lilaizhencn
+ */
 @SpringBootApplication
 @Import({ CommonConfiguration.class, ConfigProperties.class })
 @EnableKafka
@@ -27,7 +30,7 @@ public class S1pKafkaApplication {
 
 	public static void main(String[] args) throws Exception {
 		ConfigurableApplicationContext context = new SpringApplicationBuilder(S1pKafkaApplication.class)
-			.web(WebApplicationType.SERVLET)
+			.web(WebApplicationType.NONE)
 			.run(args);
 		TestBean testBean = context.getBean(TestBean.class);
 		for (int i = 0; i < 10; i++) {
