@@ -17,10 +17,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.listener.AbstractMessageListenerContainer.AckMode;
 import org.springframework.kafka.listener.AcknowledgingMessageListener;
+import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
-import org.springframework.kafka.listener.config.ContainerProperties;
 import org.springframework.kafka.support.Acknowledgment;
 
 @SpringBootApplication
@@ -54,7 +53,7 @@ public class S1pKafkaApplication {
 			ConfigProperties config) {
 		ContainerProperties containerProperties = new ContainerProperties(config.getTopic());
 		containerProperties.setMessageListener(listener());
-		containerProperties.setAckMode(AckMode.MANUAL_IMMEDIATE);
+		containerProperties.setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
 		return new KafkaMessageListenerContainer<>(consumerFactory, containerProperties);
 	}
 
